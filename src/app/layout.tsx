@@ -1,3 +1,4 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   title: "Studira – Human-Paced Tech Education",
   description:
     "Studira delivers personalized one-on-one tech education at your pace. Learn frontend, backend, AI, and cloud engineering affordably, with long-term support.",
-  metadataBase: new URL("https://studira.tech"), // Update with your actual domain
+  metadataBase: new URL("https://studira.tech"),
   viewport: {
     width: "device-width",
     initialScale: 1,
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.png", // Replace with your actual OG image path
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Studira – Personalized Tech Learning",
@@ -47,24 +48,59 @@ export const metadata: Metadata = {
     title: "Studira – Personalized Tech Learning",
     description:
       "Human-centered, mastery-based learning in tech. Affordable, flexible, effective.",
-    images: ["/og-image.png"], // Ensure this exists
-    creator: "@studira", // Replace with actual Twitter if available
+    images: ["/og-image.png"],
+    creator: "@studira", // Update if you have a Twitter
   },
   icons: {
-    icon: "/favicon.ico", //  correct
-    shortcut: "/favicon.ico", //  correct
-    apple: "/favicon.ico", //  correct
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
   },
-  themeColor: "#1D4ED8", // Blue-700
+  themeColor: "#1D4ED8", // Tailwind Blue-700
+};
+
+// ✅ Schema.org structured data
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  name: "Studira",
+  url: "https://studira.tech",
+  logo: "https://studira.tech/logo.png", // Make sure this is accessible publicly
+  description:
+    "Studira is a tech education platform offering one-on-one personalized learning in frontend, backend, cloud, and AI/ML at your pace.",
+  sameAs: [
+    "https://www.linkedin.com/company/studira", // Update if available
+    "https://twitter.com/studira", // Update if available
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    email: "support@studira.tech",
+    contactType: "Customer Support",
+    availableLanguage: ["English"],
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        {/* Content Security Policy fix for Paystack */}
+        <meta
+          httpEquiv="Content-Security-Policy"
+          content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.paystack.co;"
+        />
+        {/* Schema.org JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-brand-background text-brand-text`}
       >

@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const faqs = [
   {
-    question: "What makes Techsride different from other platforms?",
+    question: "What makes Studira different from other platforms?",
     answer:
       "Studira offers real one-on-one instruction, no AI-only teaching. Our flexible pace and mastery-based learning ensure every student actually learns and succeeds.",
   },

@@ -139,6 +139,7 @@ export default function PaymentPage() {
         100
     );
 
+    // Optional: Formspree
     try {
       await fetch("https://formspree.io/f/xdkzdqen", {
         method: "POST",
@@ -147,16 +148,10 @@ export default function PaymentPage() {
       });
     } catch {
       toast.error("❌ Form submission failed.");
-      return;
     }
 
     if (!window.PaystackPop) {
       toast.error("❌ Paystack script not loaded.");
-      return;
-    }
-
-    if (!PAYSTACK_PUBLIC_KEY) {
-      toast.error("❌ Paystack public key is missing.");
       return;
     }
 
@@ -197,8 +192,11 @@ export default function PaymentPage() {
     <main className="max-w-2xl mx-auto px-4 py-12 space-y-10 bg-slate-50 text-slate-900">
       <Script
         src="https://js.paystack.co/v1/inline.js"
-        strategy="beforeInteractive"
+        strategy="afterInteractive"
+        onLoad={() => console.log("✅ Paystack loaded")}
+        onError={() => toast.error("❌ Paystack script failed")}
       />
+
       <Toaster position="top-right" />
 
       <section className="text-center space-y-2">
@@ -208,38 +206,38 @@ export default function PaymentPage() {
         </p>
       </section>
 
-      <section className="bg-white shadow rounded-2xl p-6 space-y-4 border">
-        <h2 className="text-xl font-semibold">Plan Summary</h2>
-        <div className="flex justify-between font-semibold">
-          <span>{plan.label}</span>
-          <span className="text-right text-sm leading-tight">
-            <div className="text-lg font-bold">${totalPriceUSD}</div>
-            <div className="text-slate-500">{formatNaira(totalPriceNGN)}</div>
-          </span>
-        </div>
-        <ul className="space-y-2 text-sm">
-          {plan.features.map((feature: string, i: number) => (
-            <li key={i} className="flex gap-2 items-center">
-              <FaCheckCircle className="text-green-500" />
-              <span>{feature}</span>
-            </li>
-          ))}
-        </ul>
-      </section>
-
       <form
+        id="paymentForm"
         onSubmit={(e) => {
           e.preventDefault();
           handlePay();
         }}
         className="space-y-6 bg-white p-6 rounded-2xl border"
       >
+        <section className="bg-white shadow rounded-2xl p-6 space-y-4 border">
+          <h2 className="text-xl font-semibold">Plan Summary</h2>
+          <div className="flex justify-between font-semibold">
+            <span>{plan.label}</span>
+            <span className="text-right text-sm leading-tight">
+              <div className="text-lg font-bold">${totalPriceUSD}</div>
+              <div className="text-slate-500">{formatNaira(totalPriceNGN)}</div>
+            </span>
+          </div>
+          <ul className="space-y-2 text-sm">
+            {plan.features.map((feature: string, i: number) => (
+              <li key={i} className="flex gap-2 items-center">
+                <FaCheckCircle className="text-green-500" />
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
         {["name", "email", "country", "phone", "referral", "goals"].map(
           (id) => (
             <div key={id}>
               <label htmlFor={id} className="block mb-1 font-medium">
-                {id.charAt(0).toUpperCase() +
-                  id.slice(1).replace(/([A-Z])/g, " $1")}
+                {id.charAt(0).toUpperCase() + id.slice(1)}
               </label>
               <input
                 id={id}

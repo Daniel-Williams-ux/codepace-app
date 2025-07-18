@@ -4,6 +4,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { MessageSquare } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 // ✅ Metadata outside "use client"
 export const metadata: Metadata = {
@@ -100,6 +101,27 @@ export default function ContactPage() {
             <MessageSquare className="w-5 h-5 text-blue-500" />
             <span>We typically reply within 24–48 hours.</span>
           </div>
+
+           {/* Trust CTA */}
+                <section className="bg-slate-50 py-10 px-4 rounded-xl text-center shadow-inner">
+                  {/* <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-4">
+                    Have Questions? Want to Chat First?
+                  </h2> */}
+                  {/* <p className="text-slate-600 mb-6 max-w-xl mx-auto">
+                    We’re humans — not bots. If you’re unsure, curious, or just want to
+                    speak directly, you can message us personally.
+                  </p> */}
+                  <a
+                    href="https://wa.me/2347033112571"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-green-700 transition"
+                    aria-label="Chat with us on WhatsApp"
+                  >
+                    <FaWhatsapp className="text-white text-xl" />
+                    Chat on WhatsApp
+                  </a>
+                </section>
         </div>
       </section>
     </main>
