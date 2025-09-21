@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Head from "next/head";
 
 export default function ApplyPage() {
   const router = useRouter();
@@ -74,84 +75,94 @@ export default function ApplyPage() {
   };
 
   return (
-    <main className="max-w-xl mx-auto px-4 py-20">
-      <h1 className="text-3xl font-bold text-[#1D4ED8] mb-4 text-center">
-        Apply for a Scholarship
-      </h1>
-      <p className="text-center text-[#475569] mb-8">
-        Tell us about your goals and challenges. We review all applications
-        within 48 hours.
-      </p>
-
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <input
-          type="text"
-          name="bot-field"
-          value={form["bot-field"]}
-          onChange={handleChange}
-          hidden
-          aria-hidden="true"
-          tabIndex={-1}
-          autoComplete="off"
+    <>
+      <Head>
+        <title>Apply for a Scholarship | Studira</title>
+        <meta
+          name="description"
+          content="Apply for a full scholarship with Studira — one-on-one tech mentorship tailored to your journey. We welcome learners from underserved regions."
         />
+      </Head>
 
-        <div>
+      <main className="max-w-xl mx-auto px-4 py-20">
+        <h1 className="text-3xl font-bold text-[#1D4ED8] mb-4 text-center">
+          Apply for a Scholarship
+        </h1>
+        <p className="text-center text-[#475569] mb-8">
+          Tell us about your goals and challenges. We review all applications
+          within 48 hours.
+        </p>
+
+        <form onSubmit={handleSubmit} className="space-y-6">
           <input
-            name="name"
-            placeholder="Your full name"
-            value={form.name}
+            type="text"
+            name="bot-field"
+            value={form["bot-field"]}
             onChange={handleChange}
-            className={`w-full px-4 py-2 border rounded-md ${
-              errors.name ? "border-red-500" : "border-gray-300"
-            }`}
+            hidden
+            aria-hidden="true"
+            tabIndex={-1}
+            autoComplete="off"
           />
-          {errors.name && (
-            <p className="text-red-500 text-sm mt-1">{errors.name}</p>
-          )}
-        </div>
 
-        <div>
-          <input
-            name="email"
-            type="email"
-            placeholder="Your email"
-            value={form.email}
-            onChange={handleChange}
-            className={`w-full px-4 py-2 border rounded-md ${
-              errors.email ? "border-red-500" : "border-gray-300"
+          <div>
+            <input
+              name="name"
+              placeholder="Your full name"
+              value={form.name}
+              onChange={handleChange}
+              className={`w-full px-4 py-2 border rounded-md ${
+                errors.name ? "border-red-500" : "border-gray-300"
+              }`}
+            />
+            {errors.name && (
+              <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+            )}
+          </div>
+
+          <div>
+            <input
+              name="email"
+              type="email"
+              placeholder="Your email"
+              value={form.email}
+              onChange={handleChange}
+              className={`w-full px-4 py-2 border rounded-md ${
+                errors.email ? "border-red-500" : "border-gray-300"
+              }`}
+            />
+            {errors.email && (
+              <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+            )}
+          </div>
+
+          <div>
+            <textarea
+              name="message"
+              placeholder="Tell us your story — at least 30 characters"
+              rows={6}
+              value={form.message}
+              onChange={handleChange}
+              className={`w-full px-4 py-2 border rounded-md ${
+                errors.message ? "border-red-500" : "border-gray-300"
+              }`}
+            />
+            {errors.message && (
+              <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+            )}
+          </div>
+
+          <button
+            type="submit"
+            disabled={loading}
+            className={`bg-[#F59E0B] hover:bg-[#D97706] text-white font-medium px-6 py-3 rounded-xl w-full transition ${
+              loading ? "opacity-50 cursor-not-allowed" : "cursor-pointer"
             }`}
-          />
-          {errors.email && (
-            <p className="text-red-500 text-sm mt-1">{errors.email}</p>
-          )}
-        </div>
-
-        <div>
-          <textarea
-            name="message"
-            placeholder="Tell us your story — at least 30 characters"
-            rows={6}
-            value={form.message}
-            onChange={handleChange}
-            className={`w-full px-4 py-2 border rounded-md ${
-              errors.message ? "border-red-500" : "border-gray-300"
-            }`}
-          />
-          {errors.message && (
-            <p className="text-red-500 text-sm mt-1">{errors.message}</p>
-          )}
-        </div>
-
-        <button
-          type="submit"
-          disabled={loading}
-          className={`bg-[#F59E0B] hover:bg-[#D97706] text-white font-medium px-6 py-3 rounded-xl w-full transition ${
-            loading ? "opacity-50 cursor-not-allowed" : "cursor-pointer"
-          }`}
-        >
-          {loading ? "Submitting..." : "Submit Application"}
-        </button>
-      </form>
-    </main>
+          >
+            {loading ? "Submitting..." : "Submit Application"}
+          </button>
+        </form>
+      </main>
+    </>
   );
 }

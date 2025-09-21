@@ -20,13 +20,8 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Studira – Human-Paced Tech Education",
   description:
-    "Studira delivers personalized one-on-one tech education at your pace. Learn frontend, backend, AI, and cloud engineering affordably, with long-term support.",
+     "Studira delivers personalized, one-on-one tech mentorship at your pace. Learn frontend, backend, AI, or cloud with full support — built for U.S. students who want affordable results.",
   metadataBase: new URL("https://studira.tech"),
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
   openGraph: {
     title: "Studira – Human-Paced Tech Education",
     description:
@@ -58,6 +53,13 @@ export const metadata: Metadata = {
   },
   themeColor: "#1D4ED8", // Tailwind Blue-700
 };
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 
 // ✅ Schema.org structured data
 const structuredData = {
@@ -93,6 +95,8 @@ export default function RootLayout({
           httpEquiv="Content-Security-Policy"
           content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.paystack.co;"
         />
+        <meta name="theme-color" content="#1D4ED8" />
+
         {/* Schema.org JSON-LD */}
         <script
           type="application/ld+json"

@@ -2,9 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-// import { FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaFacebook } from 'react-icons/fa';
 import { FaEnvelope } from "react-icons/fa";
-
 
 export default function Footer() {
   return (
@@ -62,8 +61,31 @@ export default function Footer() {
               </Link>
             </li>
           </ul>
+
+          {/* Legal Section */}
+          <div className="mt-6">
+            <h4 className="text-white text-lg font-semibold mb-2">Legal</h4>
+            <ul className="flex flex-col gap-2 text-slate-300 text-sm">
+              <li>
+                <Link href="/refund-policy" className="hover:text-white">
+                  Refund Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy-policy" className="hover:text-white">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms-of-service" className="hover:text-white">
+                  Terms of Service
+                </Link>
+              </li>
+            </ul>
+          </div>
+
           <p className="text-xs text-slate-500 mt-4 max-w-xs">
-            Need help affording training?{" "}
+            Need help affording training?{' '}
             <Link href="/scholarships" className="underline hover:text-white">
               Learn about our scholarships
             </Link>
@@ -79,31 +101,18 @@ export default function Footer() {
               support@studira.tech
             </a>
           </div>
-          {/* <div className="flex items-center gap-5 mt-4">
+          {/* Social Links */}
+          <div className="flex items-center gap-5 mt-4">
             <a
-              href="https://twitter.com"
+              href="https://web.facebook.com/profile.php?id=61579270169099"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="X (Twitter)"
+              aria-label="Facebook"
+              className="hover:text-blue-400"
             >
-              <Image
-                src="/x-logo.png"
-                alt="X (Twitter) logo"
-                width={20}
-                height={20}
-                className="invert"
-              />
+              <FaFacebook size={24} />
             </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="hover:text-blue-300"
-            >
-              <FaLinkedin size={20} />
-            </a>
-          </div> */}
+          </div>
         </div>
       </div>
 

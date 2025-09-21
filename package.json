@@ -9,7 +9,8 @@
     "export": "next export",
     "deploy:static": "npm run build && npm run export",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "sitemap": "ts-node scripts/generate-sitemap.js"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.2",

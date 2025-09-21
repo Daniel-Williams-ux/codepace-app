@@ -14,9 +14,7 @@ export default function HeroSection() {
           </h1>
 
           <p className="text-lg text-slate-700">
-            Learn one-on-one with a human instructor. Go at your own pace. No
-            pressure — just personalized support until you're confident and
-            job-ready.
+             Tired of overpriced bootcamps? Studira gives you affordable, one-on-one mentorship. Learn at your pace with real instructors — no pressure, just progress.
           </p>
 
           <div className="grid gap-2 text-slate-800 text-base">

@@ -2,9 +2,20 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Head from "next/head";
 
 export default function CloudBootcampPage() {
   return (
+     <>
+          <Head>
+            <title>Cloud Engineering Bootcamp | Studira</title>
+            <meta
+              name="description"
+              content="Master the cloud at your pace with personalized, one-on-one mentorship on Studira."
+            />
+            <link rel="canonical" href="https://studira.tech/courses/cloud-bootcamp" />
+      </Head>
+      
     <main className="bg-white text-slate-800">
       {/* HERO */}
       <section className="px-6 py-20 bg-gradient-to-b from-blue-50 to-white text-center">
@@ -252,6 +263,7 @@ export default function CloudBootcampPage() {
           Apply Now
         </Link>
       </section>
-    </main>
+      </main>
+      </>
   );
 }

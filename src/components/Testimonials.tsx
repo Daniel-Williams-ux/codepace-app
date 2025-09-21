@@ -11,6 +11,7 @@ const testimonials = [
     quote:
       "I never thought learning code could feel so human. My mentor adapted to my pace and made every concept click.",
     stars: 5,
+    tag: "Frontend Mentorship",
   },
   {
     name: "Greg Miiles",
@@ -19,6 +20,7 @@ const testimonials = [
     quote:
       "The one-on-one sessions made all the difference. I learned faster than I ever did in group bootcamps.",
     stars: 5,
+    tag: "AI/ML Mentorship",
   },
   {
     name: "Amina S.",
@@ -27,6 +29,7 @@ const testimonials = [
     quote:
       "I could pause when life got busy — and still had full support when I returned. That's rare in tech learning.",
     stars: 5,
+    tag: "Data Mentorship",
   },
   {
     name: "Ganeswaran",
@@ -35,6 +38,7 @@ const testimonials = [
     quote:
       "I thoroughly enjoyed my tutoring sessions with Daniel for my AWS project. He’s patient, clear, and encouraging. Daniel tailored the sessions to my needs — I wouldn’t hesitate to recommend him.",
     stars: 5,
+    tag: "AWS Mentorship",
   },
   {
     name: "Chinedu O.",
@@ -43,6 +47,7 @@ const testimonials = [
     quote:
       "Studira gave me what YouTube couldn’t — guidance, structure, and a mentor who believed in me. I finally feel confident to apply for tech jobs.",
     stars: 5,
+    tag: "Backend Mentorship",
   },
 ];
 
@@ -71,11 +76,11 @@ export default function Testimonials() {
           id="testimonials-heading"
           className="text-3xl md:text-4xl font-bold text-blue-900 mb-4"
         >
-          What Our Students Say
+          Proven Results from One-on-One Learning
         </h2>
         <p className="text-slate-600 max-w-2xl mx-auto mb-12">
-          Real words from real learners who have experienced the power of
-          personalized education.
+          Students from across the U.S. and beyond are launching careers,
+          building skills, and gaining confidence — one session at a time.
         </p>
 
         {/* Mobile Carousel */}
@@ -103,6 +108,12 @@ export default function Testimonials() {
             <blockquote className="text-slate-700 italic text-sm">
               “{testimonials[currentIndex].quote}”
             </blockquote>
+
+            {testimonials[currentIndex].tag && (
+              <div className="mt-3 text-xs text-blue-700 bg-blue-100 inline-block px-2 py-1 rounded-full">
+                {testimonials[currentIndex].tag}
+              </div>
+            )}
             <div
               className="flex mt-4 justify-center"
               aria-label={`${testimonials[currentIndex].stars} star rating`}
@@ -161,6 +172,12 @@ export default function Testimonials() {
               <blockquote className="text-slate-700 italic text-sm">
                 “{t.quote}”
               </blockquote>
+              {/* ⬇️ Add this for tag */}
+              {t.tag && (
+                <div className="mt-3 text-xs text-blue-700 bg-blue-100 inline-block px-2 py-1 rounded-full">
+                  {t.tag}
+                </div>
+              )}
               <div className="flex mt-4" aria-label={`${t.stars} star rating`}>
                 {Array.from({ length: t.stars }).map((_, i) => (
                   <Star

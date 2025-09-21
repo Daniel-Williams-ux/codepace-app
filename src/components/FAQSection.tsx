@@ -27,12 +27,17 @@ const faqs = [
   {
     question: "How much does it cost?",
     answer:
-      "Studira programs cost between $1,500 and $2,000 total — no hidden fees, no subscriptions. Pay once or pay in instalments. learn until you succeed.",
+      "Studira programs cost between $1,500 and $2,000 total — no hidden fees, no subscriptions. Pay once or pay in instalments. Learn until you succeed.",
   },
   {
     question: "What if I get stuck or fall behind?",
     answer:
       "We’re built for that. You’ll never be rushed — our system is built around support, patience, and confidence-based progression.",
+  },
+  {
+    question: "Do you offer refunds?",
+    answer:
+      "All payments are non-refundable. However, you can pause your learning, reschedule sessions, or continue later at no extra cost. This ensures you always get full value from your investment.",
   },
 ];
 
@@ -58,11 +63,8 @@ export default function FAQSection() {
 
       <dl className="max-w-3xl mx-auto space-y-4">
         {faqs.map((faq, index) => (
-          <>
-            <dt
-              key={`dt-${index}`}
-              className="bg-slate-50 border border-slate-200 rounded-xl"
-            >
+          <div key={`faq-item-${index}`}>
+            <dt className="bg-slate-50 border border-slate-200 rounded-xl">
               <button
                 onClick={() => toggle(index)}
                 className="w-full flex justify-between items-center text-left p-4 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-t-xl"
@@ -96,7 +98,7 @@ export default function FAQSection() {
                 </motion.dd>
               )}
             </AnimatePresence>
-          </>
+          </div>
         ))}
       </dl>
     </section>

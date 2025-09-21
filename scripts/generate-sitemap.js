@@ -22,10 +22,14 @@ const dynamicCourses = [
   "data-analysis-bootcamp",
 ];
 
+// ✅ Add U.S. mentorship landing page
+const customPages = ["mentorship/usa"];
+
 const generateSitemap = () => {
   const urls = [
     ...staticPages.map((p) => `${domain}/${p}`),
     ...dynamicCourses.map((c) => `${domain}/courses/${c}`),
+    ...customPages.map((p) => `${domain}/${p}`),
   ];
 
   const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
