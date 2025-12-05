@@ -6,35 +6,41 @@ export default function HeroSection() {
   return (
     <section className="w-full pt-0 pb-20 px-4 md:px-12 bg-slate-50">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        
         {/* Left Content */}
         <div className="space-y-6">
+
+          {/* SEO-Optimized H1 */}
           <h1 className="text-4xl md:text-5xl font-extrabold text-blue-900 leading-tight">
-            Real Tech Mentorship. <br className="hidden md:inline" />
-            Built for Mastery, Not Deadlines.
+            One-on-One Coding Tutorship<br className="hidden md:inline" />
+            Designed for Beginners.
           </h1>
 
+          {/* SEO subtext */}
           <p className="text-lg text-slate-700">
-             Tired of overpriced bootcamps? Studira gives you affordable, one-on-one mentorship. Learn at your pace with real instructors — no pressure, just progress.
+            Learn tech with real human mentors. Studira gives you affordable, 
+            personalized one-on-one training in software development, frontend, 
+            backend, cloud, AI, and more — at your pace, with zero overwhelm.
           </p>
 
+          {/* Improved SEO Bullet Points */}
           <div className="grid gap-2 text-slate-800 text-base">
-            <p>✅ One-on-One Human Teaching</p>
-            <p>✅ No Deadlines — Graduate When Ready</p>
-            <p>✅ $1,500–$2,000 Total — No Hidden Fees</p>
-            <p>✅ Full Scholarships Available Globally</p>
+            <p>✅ Learn with a real human coding tutor</p>
+            <p>✅ One-on-one mentorship — not pre-recorded videos</p>
+            <p>✅ Zero deadlines — progress at your own speed</p>
+            <p>✅ $1,500–$2,000 total — no hidden fees</p>
+            <p>✅ Full scholarships available globally</p>
           </div>
 
+          {/* Scholarships line (kept same but improved SEO wording) */}
           <p className="text-green-700 font-semibold text-base">
-            From Nigeria to Nepal — we offer full scholarships to high-potential
-            learners in underserved regions.{" "}
-            <Link
-              href="/scholarships"
-              className="underline hover:text-green-600"
-            >
+            We provide full scholarships to high-potential learners in underserved regions.{" "}
+            <Link href="/scholarships" className="underline hover:text-green-600">
               Learn more
             </Link>
           </p>
 
+          {/* CTA Buttons */}
           <div className="flex gap-4 flex-wrap">
             <Button
               asChild
@@ -42,6 +48,7 @@ export default function HeroSection() {
             >
               <Link href="/pricing">Enroll Now</Link>
             </Button>
+
             <Button variant="outline" asChild>
               <Link href="/#programs">Browse Programs</Link>
             </Button>
@@ -52,13 +59,25 @@ export default function HeroSection() {
         <div className="flex justify-center md:justify-end">
           <Image
             src="/images/hero-mentorship.png"
-            alt="Student learning with mentor on screen"
+            alt="Student learning coding with a one-on-one tech mentor"
             width={500}
             height={500}
             className="rounded-xl shadow-xl object-cover"
             priority
           />
         </div>
+      </div>
+
+      {/* SEO Intro Section Below Hero */}
+      <div className="mt-16 text-center max-w-3xl mx-auto">
+        <p className="text-slate-700 text-base leading-relaxed">
+          Studira is an online tech tutoring platform offering personalized, 
+          human-led mentorship in web development, frontend engineering, 
+          backend engineering, cloud computing, AI fundamentals, and data 
+          analysis. Whether you're a beginner or switching careers, our 
+          one-on-one mentorship ensures you understand every concept, build 
+          real projects, and gain confidence in tech.
+        </p>
       </div>
 
       {/* Feature Cards */}
@@ -90,25 +109,25 @@ const features = [
   {
     title: "One-on-One Teaching",
     description:
-      "You're matched with a real human instructor who guides you throughout your journey.",
+      "You're matched with a real human instructor who guides your entire tech journey.",
     image: "/images/one-on-one.png",
   },
   {
     title: "Pace-Flexible Curriculum",
     description:
-      "Learn at your own speed — with full support, no pressure, and no arbitrary deadlines.",
+      "Learn at your own speed with full mentor support, no pressure, and no deadlines.",
     image: "/images/pace-flexible.png",
   },
   {
     title: "Confidence-Based Graduation",
     description:
-      "You graduate when you're ready — not just when the calendar says you're done.",
+      "Graduate only when you're ready — we teach until you achieve mastery.",
     image: "/images/confidence-exit.png",
   },
   {
     title: "Global Access & Scholarships",
     description:
-      "We support learners across the world, offering full scholarships to high-potential students.",
-    image: "/images/global-access.png", // Replace this with your own illustration
+      "We support learners worldwide, offering full scholarships to high-potential students.",
+    image: "/images/global-access.png",
   },
 ];
