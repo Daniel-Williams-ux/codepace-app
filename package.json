@@ -2,16 +2,15 @@
   "name": "codepace-app",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build --no-lint",
-    "postbuild": "node scripts/generate-sitemap.js",
-    "export": "next export",
-    "deploy:static": "npm run build && npm run export",
-    "start": "next start",
-    "lint": "next lint",
-    "sitemap": "node scripts/generate-sitemap.js"
-  },
+ "scripts": {
+  "dev": "next dev",
+  "build": "next build --no-lint",
+  "postbuild": "node scripts/generate-sitemap.js",
+  "deploy:static": "npm run build",
+  "start": "next start",
+  "lint": "next lint",
+  "sitemap": "node scripts/generate-sitemap.js"
+},
   "dependencies": {
     "@headlessui/react": "^2.2.2",
     "@radix-ui/react-slot": "^1.2.2",

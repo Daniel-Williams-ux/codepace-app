@@ -1,29 +1,32 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 
-const domain = "https://www.studira.tech";
+// Your domain
+const domain = 'https://www.studira.tech';
 
+// Static pages you want indexed
 const staticPages = [
-  "", // homepage
-  "about",
-  "programs",
-  "scholarships",
-  "apply",
-  "faq",
-  "contact",
-  "pricing",
+  '', // homepage
+  'about',
+  'programs',
+  'scholarships',
+  'apply',
+  'faq',
+  'contact',
+  'pricing',
 ];
 
+// Course pages
 const dynamicCourses = [
-  "frontend",
-  "backend",
-  "cloud-bootcamp",
-  "ai-ml",
-  "data-analysis-bootcamp",
+  'frontend',
+  'backend',
+  'cloud-bootcamp',
+  'ai-ml',
+  'data-analysis-bootcamp',
 ];
 
-// ✅ Add U.S. mentorship landing page
-const customPages = ["mentorship/usa"];
+// Custom pages
+const customPages = ['mentorship/usa'];
 
 const generateSitemap = () => {
   const urls = [
@@ -38,16 +41,20 @@ ${urls
   .map(
     (url) => `<url>
   <loc>${url}</loc>
+  <changefreq>weekly</changefreq>
+  <priority>${url === domain + '/' ? '1.0' : '0.8'}</priority>
 </url>`
   )
-  .join("\n")}
+  .join('\n')}
 </urlset>`;
 
-  const outDir = path.join(__dirname, "../public");
+  // Write sitemap to /out for Namecheap static hosting
+  const outDir = path.join(process.cwd(), 'out');
   if (!fs.existsSync(outDir)) fs.mkdirSync(outDir);
 
-  fs.writeFileSync(path.join(outDir, "sitemap.xml"), sitemapXml);
-  console.log("✅ Sitemap generated at /public/sitemap.xml");
+  fs.writeFileSync(path.join(outDir, 'sitemap.xml'), sitemapXml);
+
+  console.log('✅ Sitemap generated at /out/sitemap.xml');
 };
 
 generateSitemap();
